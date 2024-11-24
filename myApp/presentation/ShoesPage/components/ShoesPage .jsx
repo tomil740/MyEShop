@@ -1,17 +1,34 @@
-import { useState } from "react"
-import shoesVm from "../shoesVm"
+import React, { useEffect,useState } from "react";
+import { useShoesViewModel } from "../ShoesViewModel"; // Assuming the hook is in the "hooks" folder
+import PreviewContainer from "./PreviewContainer";
+
+const ShoesComponent = () => {
+  // Destructure the values returned from the useFetchShoes hook
+  const uiState = useShoesViewModel()
 
 
-function ShoesPage(){
+  // Handle loading state
+  if (uiState.isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  const vm = useState(new shoesVm())[0]
-  const uiState = useState(vm.uiState);
+  // Handle error state
+  if (uiState.errorMessage) {
+    return <div>Error: {error}</div>;
+  }
 
+  // Handle case when shoes data is empty or not available
+  if (!uiState.shoesData || uiState.shoesData.length === 0) {
+    return <div>No shoes available</div>;
+  }
+
+  // Render the list of shoes
   return (
-    <section>
-      <h1>The ui state is</h1>
-      <button onClick={()=>{vm.getAlldata()}}>get data</button>
-    </section>
-  )
-}
-export default ShoesPage;
+    <div>
+      <h1>Shoes List</h1>
+      <PreviewContainer shoesData={uiState.shoesData} />
+    </div>
+  );
+};
+
+export default ShoesComponent;

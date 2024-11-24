@@ -1,10 +1,18 @@
 import { atom } from "recoil";
 
 export class ShoesUiStateModule {
-  shoesItems;
+  shoesData;
+  isLoading;
+  errorMessage;
 
-  constructor() {
-    this.shoesItems = [];
+  constructor(initStateArg) {
+    let initState = initStateArg;
+    if(initState == null || initState == undefined){
+      initState = { shoesData : [], loading : false, error: "" }
+    }
+    this.shoesData = initState.shoesData;
+    this.isLoading = initState.loading;
+    this.errorMessage = initState.error;
   }
 }
 
