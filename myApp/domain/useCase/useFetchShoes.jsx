@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { localDataFetch, loadingAtom, errorAtom } from "../../data/localDataFetch";
 import { useEffect,useState } from "react";
-import repository from "../repository";
+import repository from "../Repository";
 
 
 export function useFetchShoes() {
