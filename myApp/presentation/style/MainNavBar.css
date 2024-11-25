@@ -6,8 +6,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #1a202c; /* Dark background to make it sleek */
-  color: #fff;
+  background-color: var(--md-sys-color-primary); /* Primary color from the theme */
+  color: var(--md-sys-color-on-primary); /* Text color on primary */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
@@ -34,7 +34,7 @@
 }
 
 .navbar__link {
-  color: #fff;
+  color: var(--md-sys-color-on-primary); /* On primary color */
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -42,14 +42,14 @@
 }
 
 .navbar__link:hover {
-  color: #f1a10a; /* Gold-like hover effect */
+  color: var(--md-sys-color-secondary); /* Hover color using secondary */
 }
 
 .navbar__add-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f1a10a; /* Gold color for the add button */
+  background-color: var(--md-sys-color-primary-container); /* Primary container color */
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
@@ -57,9 +57,9 @@
 }
 
 .navbar__add-button:hover {
-  background-color: #e89a07; /* Slightly darker gold for hover */
+  background-color: var(--md-sys-color-primary-fixed-dim); /* Slightly dimmed primary */
 }
 
 .navbar__add-button svg {
-  color: #fff;
+  color: var(--md-sys-color-on-primary); /* On primary */
 }
